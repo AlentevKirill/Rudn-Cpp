@@ -1,0 +1,4 @@
+C:\cygwin64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Try_work/hw1_calculator
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Try_work/hw1_calculator/cmake-build-debug
