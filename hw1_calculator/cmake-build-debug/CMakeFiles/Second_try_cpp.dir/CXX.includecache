@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Try_work/hw1_calculator/first_hw_calculator.cpp
+iostream
+-
+vector
+-
+cmath
+-
+windows.h
+-
+iomanip
+-
+limits
+-
+map
+-
+algorithm
+-
+bitset
+-
+cstdint
+-
+

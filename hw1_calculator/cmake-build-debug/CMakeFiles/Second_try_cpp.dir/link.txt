@@ -1,0 +1,1 @@
+/usr/bin/c++.exe  -fopenmp -g  -Wl,--enable-auto-import  CMakeFiles/Second_try_cpp.dir/first_hw_calculator.cpp.o  -o Second_try_cpp.exe -Wl,--out-implib,libSecond_try_cpp.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

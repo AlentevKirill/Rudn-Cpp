@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/hw1_calculator.dir/first_hw_calculator.cpp.o  -o hw1_calculator.exe -Wl,--out-implib,libhw1_calculator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
