@@ -22,7 +22,6 @@ void ParsingResult::clear() {
 JsonStreamProcessor::JsonStreamProcessor() = default;
 
 JsonStreamProcessor::~JsonStreamProcessor() {
-    stopAllThreads();
     clear();
 }
 
@@ -30,9 +29,6 @@ const ParsingResult& JsonStreamProcessor::processFile(const std::string& filenam
     auto start_time = std::chrono::high_resolution_clock::now();
 
     clear();
-
-    m_processing = true;
-    m_shouldStop = false;
 
     try {
         JsonObjectExtractor extractor(filename);
@@ -51,7 +47,6 @@ const ParsingResult& JsonStreamProcessor::processFile(const std::string& filenam
         m_result.totalObjects = m_result.objects.size();
         m_result.totalNodes = calculateTotalNodes();
 
-        m_processing = false;
 
     } catch (const JsonParseException& e) {
         cleanupOnError();
@@ -359,22 +354,14 @@ std::shared_ptr<JsonNode> JsonStreamProcessor::get(size_t index, const std::stri
     return m_result.objects[index]->getByPath(path);
 }
 
-std::shared_ptr<JsonNode> JsonStreamProcessor::getFirst(const std::string& path) const {
-    return get(0, path);
-}
 
 const ParsingResult& JsonStreamProcessor::getResult() const {
     return m_result;
 }
 
-size_t JsonStreamProcessor::getObjectCount() const {
-    return m_result.objects.size();
-}
 
 void JsonStreamProcessor::clear() {
     m_result.clear();
-    m_processing = false;
-    m_shouldStop = false;
 }
 
 size_t JsonStreamProcessor::calculateTotalNodes() const {
@@ -388,11 +375,5 @@ size_t JsonStreamProcessor::calculateTotalNodes() const {
 }
 
 void JsonStreamProcessor::cleanupOnError() {
-    stopAllThreads();
     clear();
-}
-
-void JsonStreamProcessor::stopAllThreads() {
-    m_shouldStop = true;
-    m_processing = false;
 }

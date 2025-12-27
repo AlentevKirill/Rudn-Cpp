@@ -225,12 +225,6 @@ bool BufferedJsonReader::tryCompleteObjectFromPartial() const {
     return false;
 }
 
-bool BufferedJsonReader::isStartOfObject(const std::string& data, size_t offset) const {
-    if (offset >= data.length()) return false;
-
-    // Начало JSON объекта - '{'
-    return data[offset] == '{';
-}
 
 size_t BufferedJsonReader::findObjectEnd(const std::string& data, size_t startPos) const {
     int braceDepth = 0;

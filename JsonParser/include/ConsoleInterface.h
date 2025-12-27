@@ -39,11 +39,6 @@ private:
 
     bool validateFilePath(const std::string& path);
     bool askRetry();
-    void printNodeStructure(
-            const std::shared_ptr<JsonNode>& node,
-            const std::string& path,
-            int indent
-            );
 
     void printStructureWithTypes(const std::shared_ptr<JsonNode>& node,
                                  const std::string& prefix = "",

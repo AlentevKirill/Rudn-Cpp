@@ -44,7 +44,6 @@ private:
     bool tryFindNextObject() const;
     std::string readFileChunk() const;
     bool tryCompleteObjectFromPartial() const;
-    bool isStartOfObject(const std::string& data, size_t offset = 0) const;
     size_t findObjectEnd(const std::string& data, size_t startPos) const;
     size_t findObjectEndFast(const std::string& data, size_t startPos) const;
 
